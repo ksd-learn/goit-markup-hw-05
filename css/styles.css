@@ -1,7 +1,7 @@
 /* БАЗОВЫЕ СТИЛИ + HEADER + FOOTER */
 
             /* ОБЩИЕ НАСТРОЙКИ */
-                /* цвет */
+                /* переменные */
         :root {
             --title: #212121;
             --text: #757575;
@@ -88,23 +88,22 @@
             letter-spacing: 0.03em;
         }
 
-                /* стилизация: списки<li>(.item), ссылки<a>(.link), img - уберем нижние просветы */
+                /* img - уберем нижний просвет */
         img {
             display: block;
         }
 
+                /* стилизация списков<li> */
         .item {
             list-style: none;
         }
 
+                /* стилизация ссылок<a> и анимация (переходы) */
         .link {
-            color: var(--title);
             text-decoration: none;
-        }
-
-        .link:hover,
-        .link:focus {
-            color: var(--a-hover-focus--btn);
+            transition-property: background-color, color, border-color, box-shadow, transform, opacity;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
                 /* блочная разметка CONTAINER и SECTION */
@@ -159,16 +158,37 @@ header {
     margin-right: 318px;
 }
 
+.header-nav_color {
+    color: var(--title);
+}
+
+.header-nav_color:hover,
+.header-nav_color:focus {
+    color: var(--a-hover-focus--btn);
+}
+
 .header-nav .item + .item {
     margin-left: 50px;
 }
 
-.header-connect {
-    display: flex;
+.current {
+    color: var(--a-hover-focus--btn);
+    position: relative;
 }
 
-.link.current {
-    color: var(--a-hover-focus--btn);
+.current::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #188CE8;
+    border-radius: 2px;
+    bottom: -34px;
+}
+
+.header-connect {
+    display: flex;
 }
 
 .header-connect .item+.item {
@@ -179,6 +199,11 @@ header {
     display: flex;
     align-items: center;
     color: var(--text);
+}
+
+.header-connect_color:hover,
+.header-connect_color:focus {
+    color: var(--a-hover-focus--btn);
 }
 
 .header-connect_color .icon {
@@ -208,6 +233,11 @@ header {
     align-items: baseline;
 }
 
+.footer-connect {
+    width: 231px;
+    margin-right: 70px;
+}
+
 .footer .logo {
     display: inline-block;
     margin-bottom: 20px;
@@ -219,6 +249,7 @@ header {
 }
 
 .footer-list {
+    font-style: normal;
     line-height: 1.7;
 }
 
@@ -226,25 +257,16 @@ header {
     color: var(--text-gray);
 }
 
+.footer-list_map:hover,
+.footer-list_map:focus,
+.footer-list_color:hover,
+.footer-list_color:focus {
+    color: var(--a-hover-focus--btn)
+}
+
 .footer-list .item + .item {
     margin-top: 9px;
 }
-
-.footer-list {
-    font-style: normal;
-}
-
-.footer-connect {
-    width: 231px;
-    margin-right: 70px;
-    
-}
-
-/* .footer-join {
-    padding-top: 15px;
-} */
-
-
 
 .footer-join__title {
     color: var(--text-backgr-white);
