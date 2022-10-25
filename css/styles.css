@@ -98,12 +98,9 @@
             list-style: none;
         }
 
-                /* стилизация ссылок<a> и анимация (переходы) */
+                /* стилизация ссылок<a> */
         .link {
             text-decoration: none;
-            transition-property: background-color, color, border-color, box-shadow, transform, opacity;
-            transition-duration: 250ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
                 /* блочная разметка CONTAINER и SECTION */
@@ -220,6 +217,11 @@ header {
     height: 16px;
 }
 
+.header-nav_color,
+.header-connect_color {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* footer */
 .footer {
     height: 252px;
@@ -264,6 +266,11 @@ header {
     color: var(--a-hover-focus--btn)
 }
 
+.footer-list_map,
+.footer-list_color {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer-list .item + .item {
     margin-top: 9px;
 }
@@ -302,10 +309,11 @@ header {
 .footer-join_hover {
     color: var(--text-backgr-white);
     background-color: var(--icon-backgr);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-join_hover:hover,
 .footer-join_hover:focus {
-    color: var(--text-backgr-white);
     background-color: var(--a-hover-focus--btn);
 }
+
